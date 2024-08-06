@@ -6,11 +6,9 @@ import { TbApiApp } from "react-icons/tb";
 
 export const SideBar = () => {
     return <div className="grid grid-rows-10 gap-5 min-w-fit">
-        <SidebarItem field="General" />
-        <SidebarItem field="Servers" />
-        <SidebarItem field="Paths" />
-        <SidebarItem field="Components" />
-        <SidebarItem field="Security" />
+        {["General", "Servers", "Paths", "Components", "Security"].map((field) => 
+            <SidebarItem field={field} />
+        )};
     </div>
 }
 
