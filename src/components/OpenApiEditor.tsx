@@ -1,19 +1,23 @@
+import OpenAPISpecViewer from "./openapi-spec-viewer"
 import { SideBar } from "./Sidebar"
-// import OpenAPIParser from "@readme/openapi-parser"
-// import petstore from "../assets/petstore.json"
-// import TwoColumnCollapsible from "./two-column-collapsible"
+import { TabNavigator } from "./TabNavigator"
 
 
 export const OpenApiEditor = () => {
 
     return (
-        <div className="flex">
-            <div className="border-r border-[#6D63CD] hidden md:block">
-                <SideBar />
+        <div className="w-screen h-screen flex">
+            <div className="h-full w-1/4 bg-slate-300">
+            
             </div>
-            <div className="w-full">
-               {/* { api.info.title } */}
-               Main
+            <div className="flex w-full flex-col">
+                <div className="w-full h-12 bg-slate-300 flex justify-center">
+                    Main
+                </div>
+                <TabNavigator />
+            </div>
+            <div className="h-full w-1/3 bg-slate-300">
+
             </div>
         </div>
     )
