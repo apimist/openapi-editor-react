@@ -5,23 +5,32 @@ import { IoInformationCircle } from "react-icons/io5";
 import { MdSecurity } from "react-icons/md";
 import { TbApiApp } from "react-icons/tb";
 
-export const TabNavigator = () => {
+interface TabNavigatorProps {
+    onTabChange: (tab: string) => void;
+}
+
+
+
+export const TabNavigator = ({ onTabChange }: TabNavigatorProps) => {
     const tabs = ["General", "Servers", "Paths", "Components", "Security"];
     const [activeTab, setActiveTab] = useState<string>('General');
 
     return <div className="flex h-20 justify-evenly w-full border-b border-[#6D63CD]">
         {tabs.map((field) =>
-            <button 
-            key={field} 
-            onClick={() => setActiveTab(field)}
-            className={`w-full justify-center hover:bg-slate-100 ${activeTab === field ? "border-b-4 border-[#6D63CD]" : ""}`}>
-            <div className="flex justify-center">
-                <SpecPropertiesIcon field={field} />
-            </div>
-            <div className="flex justify-center text-sm">
-                {field}
-            </div>
-        </button>
+            <button
+                key={field}
+                onClick={() => {
+                    setActiveTab(field);
+                    onTabChange(field);
+                }}
+                className={`w-full justify-center hover:bg-slate-100 ${activeTab === field ? "border-b-4 border-[#6D63CD]" : ""}`}>
+                <div className="flex justify-center">
+                    <SpecPropertiesIcon field={field} />
+                </div>
+                <div className="flex justify-center text-sm">
+                    {field}
+                </div>
+            </button>
         )}
     </div>
 }
