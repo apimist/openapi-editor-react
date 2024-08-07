@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BiSolidComponent } from "react-icons/bi";
 import { FaServer } from "react-icons/fa";
 import { IoInformationCircle } from "react-icons/io5";
@@ -6,10 +7,14 @@ import { TbApiApp } from "react-icons/tb";
 
 export const TabNavigator = () => {
     const tabs = ["General", "Servers", "Paths", "Components", "Security"];
+    const [activeTab, setActiveTab] = useState<string>('General');
 
     return <div className="flex h-20 justify-evenly w-full border-b border-[#6D63CD]">
         {tabs.map((field) =>
-            <button key={field} className="w-full justify-center hover:bg-slate-100 focus:border-b-4 focus:border-[#6D63CD]">
+            <button 
+            key={field} 
+            onClick={() => setActiveTab(field)}
+            className={`w-full justify-center hover:bg-slate-100 ${activeTab === field ? "border-b-4 border-[#6D63CD]" : ""}`}>
             <div className="flex justify-center">
                 <SpecPropertiesIcon field={field} />
             </div>
@@ -21,7 +26,7 @@ export const TabNavigator = () => {
     </div>
 }
 
-export function SpecPropertiesIcon({ field }: { field: string }) {
+function SpecPropertiesIcon({ field }: { field: string }) {
     let content;
 
     switch (field) {
