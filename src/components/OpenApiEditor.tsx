@@ -12,7 +12,7 @@ import { OpenAPISpecParser } from "../parser/OpenAPISpecParser";
 
 
 export const OpenApiEditor = () => {
-    const [activeTab, setActiveTab] = useState<string>();
+    const [activeTab, setActiveTab] = useState<string>('General');
     const [parsedSpec, setParsedSpec] = useState<OpenAPISpecParser | null>(null);
 
     useEffect(() => {
@@ -32,7 +32,7 @@ export const OpenApiEditor = () => {
     }
     return (
         <div className="w-full min-w-96 h-screen flex">
-            <div className="h-full w-1/4 bg-slate-300">
+            <div className="h-full w-1/3 bg-slate-300">
 
             </div>
             <div className="flex w-full flex-col">
@@ -50,7 +50,7 @@ export const OpenApiEditor = () => {
                 </div>
                 
             </div>
-            <div className="h-full w-1/3 bg-slate-300">
+            <div className="h-full w-1/4 bg-slate-300">
 
             </div>
         </div>
