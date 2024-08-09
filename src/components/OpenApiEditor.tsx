@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import OpenAPISpecViewer from "./openapi-spec-viewer"
-
 import { TabNavigator } from "./TabNavigator"
 import { Components } from "./tabs/Components";
 import { General } from "./tabs/General";
@@ -24,7 +22,6 @@ export const OpenApiEditor = () => {
             // TODO: handle error
             console.log(err);
         }
-        
     }, [])
 
     const handleTabChange = (newTab: string): void => {
@@ -39,9 +36,9 @@ export const OpenApiEditor = () => {
                 <div className="w-full h-12 bg-slate-300 flex justify-center">
                     
                 </div>
-                {/* <OpenAPISpecViewer /> */}
+                {/* TODO: add Search bar */}
                 <TabNavigator onTabChange={handleTabChange} />
-                <div className="h-full w-full">
+                <div className="h-full w-full overflow-y-auto">
                     {activeTab === 'Components' && <Components components={parsedSpec?.getComponents()} />}
                     {activeTab === 'General' && <General />}
                     {activeTab === 'Paths' && <Paths />}

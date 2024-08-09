@@ -15,14 +15,18 @@ export const TabNavigator = ({ onTabChange }: TabNavigatorProps) => {
     const tabs = ["General", "Servers", "Paths", "Components", "Security"];
     const [activeTab, setActiveTab] = useState<string>('General');
 
+    const handleTabClick = (field: string) => {
+        if (field !== activeTab) {
+            setActiveTab(field);
+            onTabChange(field);
+        }
+    }
+
     return <div className="flex h-20 justify-evenly w-full border-b border-[#6D63CD]">
         {tabs.map((field) =>
             <button
                 key={field}
-                onClick={() => {
-                    setActiveTab(field);
-                    onTabChange(field);
-                }}
+                onClick={() => handleTabClick(field)}
                 className={`w-full justify-center hover:bg-slate-100 ${activeTab === field ? "border-b-4 border-[#6D63CD]" : ""}`}>
                 <div className="flex justify-center">
                     <SpecPropertiesIcon field={field} />
