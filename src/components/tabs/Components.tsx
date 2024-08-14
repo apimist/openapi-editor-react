@@ -36,8 +36,8 @@ export const Components = ({ components }: { components: ComponentsObject | unde
     }
     return <div className="grid grid-cols-10 gap-1 xl:gap-3 w-full h-full">
             <div className="col-span-7 ">
-                <Schemas />
-                {activeProperty}
+                <Schema />
+                {/* {activeProperty} */}
                 {JSON.stringify(components?.schemas?.[activeProperty])}
                  {/* { JSON.stringify(components?.schemas) } */}
             </div>
@@ -47,7 +47,7 @@ export const Components = ({ components }: { components: ComponentsObject | unde
         </div>
 }
 
-const Schemas = () => {
-    return <div>Schemas</div>
+const Schema = () => {
+    return <div>Schema</div>
 }
 
